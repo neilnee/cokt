@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">CoKt</string>
+    <string name="app_name">CoKit</string>
+
+    <string name="asyn">Asyn Module</string>
+    <string name="asyn_request_post">Request Post</string>
+    <string name="asyn_request_get">Request Get</string>
 </resources>

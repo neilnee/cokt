@@ -1,1 +1,1 @@
-include ':app', ':lib_asyn'
+include ':app', ':lib_asyn', ':lib_base'

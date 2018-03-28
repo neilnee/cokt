@@ -5,6 +5,7 @@ import com.cokt.R
 import com.cokt.asyn.AbstractAsynTask
 import com.cokt.asyn.AsynExecutor
 import com.cokt.asyn.TaskResult
+import com.cokt.asyn.coroutines.CoroutinesTask
 import com.cokt.tool.CoktLog
 import kotlinx.android.synthetic.main.activity_asyn.*
 
@@ -23,6 +24,9 @@ class AsynActivity : BaseActivity() {
         setContentView(R.layout.activity_asyn)
         btn_req_get.setOnClickListener {
             AsynExecutor.defaultExecutor().execute(GithubTask(REQ_GET))
+        }
+        btn_req_coroutines.setOnClickListener {
+            GithubCorTask().execute()
         }
     }
 
@@ -48,6 +52,14 @@ class AsynActivity : BaseActivity() {
 
                 }
             }
+        }
+
+    }
+
+    private inner class GithubCorTask(val type: Int = REQ_GET) : CoroutinesTask() {
+
+        override suspend fun runWorkThread() {
+            CoktLog.debug("REQ GET EXECUTE !")
         }
 
     }

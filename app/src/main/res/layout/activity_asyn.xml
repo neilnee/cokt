@@ -37,6 +37,15 @@
             android:textSize="16sp"
             android:text="@string/asyn_request_get"/>
 
+        <Button
+            android:id="@+id/btn_req_coroutines"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_below="@id/btn_req_get"
+            android:textColor="@color/text_black"
+            android:textSize="16sp"
+            android:text="@string/asyn_request_coroutines"/>
+
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

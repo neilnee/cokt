@@ -22,11 +22,13 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$support_version"
+    implementation project(':lib_base')
     // okhttp
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     // gson
     implementation 'com.google.code.gson:gson:2.8.2'
+    // coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.22.5'
 }

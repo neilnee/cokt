@@ -13,15 +13,15 @@ class DeliveryMain {
         poster = Executor { command -> handler.post(command) }
     }
 
-    fun postEvent(task: AbstractAsynTask, event: TaskEvent) {
-        poster?.execute(InnerEventRunnable(task, event))
+    fun postEvent(task: AbstractAsynTask, result: TaskResult) {
+        poster?.execute(InnerEventRunnable(task, result))
     }
 
     private inner class InnerEventRunnable internal constructor(
-            private val task: AbstractAsynTask, private val event: TaskEvent) : Runnable {
+            private val task: AbstractAsynTask, private val result: TaskResult) : Runnable {
 
         override fun run() {
-            task.onEvent(event)
+            task.handleResultMain(result)
         }
     }
 

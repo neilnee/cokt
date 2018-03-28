@@ -49,7 +49,6 @@ class AsynExecutor private constructor(corePoolSize: Int, maximumPoolSize: Int, 
         threadPool?.execute(task)
     }
     
-    @Suppress("unused")
     fun cancle(task: AbstractAsynTask) {
         waitingQueue.remove(task)
     }

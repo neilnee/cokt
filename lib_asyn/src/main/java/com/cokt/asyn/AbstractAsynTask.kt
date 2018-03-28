@@ -31,20 +31,16 @@ abstract class AbstractAsynTask : Runnable, Comparable<AbstractAsynTask> {
         return 0
     }
 
-    fun setDelivery(delivery: DeliveryMain) {
+    internal fun setDelivery(delivery: DeliveryMain) {
         this.delivery = delivery
-    }
-
-    fun onEvent(event: TaskEvent) {
-        handleEventMainThread(event)
     }
 
     protected abstract fun runWorkThread()
 
-    protected abstract fun handleEventMainThread(event: TaskEvent)
+    abstract fun handleResultMain(result: TaskResult)
 
-    protected fun postEventMainThread(event: TaskEvent) {
-        delivery?.postEvent(this, event)
+    protected fun postResultMain(result: TaskResult) {
+        delivery?.postEvent(this, result)
     }
 
     protected fun <T> sendPost(url: String, req: T?) {

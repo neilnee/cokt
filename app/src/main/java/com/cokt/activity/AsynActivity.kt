@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.cokt.R
 import com.cokt.asyn.AbstractAsynTask
 import com.cokt.asyn.AsynExecutor
-import com.cokt.asyn.TaskEvent
+import com.cokt.asyn.TaskResult
 import com.cokt.tool.CoktLog
 import kotlinx.android.synthetic.main.activity_asyn.*
 
@@ -14,7 +14,8 @@ class AsynActivity : BaseActivity() {
         private const val REQ_GET = 1
         private const val REQ_POST = 2
 
-        private const val GITHUB_POST_URL = "https://api.github.com/repos/neilnee/cokt"
+        private const val GITHUB_POST_URL = ""
+        private const val GITHUB_GET_URL = "https://api.github.com/repos/neilnee/cokt"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,13 +27,11 @@ class AsynActivity : BaseActivity() {
     }
 
     private inner class GithubTask(val type: Int = REQ_GET) : AbstractAsynTask() {
-        private var coktResp: CoktResp? = null
 
         override fun runWorkThread() {
             when (type) {
                 REQ_GET -> {
-                    coktResp = requestGet(GITHUB_POST_URL)
-                    postEventMainThread(TaskEvent(type))
+                    postResultMain(TaskResult(type).putResult(requestGet<CoktResp>(GITHUB_GET_URL)))
                 }
                 REQ_POST -> {
 
@@ -40,10 +39,13 @@ class AsynActivity : BaseActivity() {
             }
         }
 
-        override fun handleEventMainThread(event: TaskEvent) {
-            when (type) {
+        override fun handleResultMain(result: TaskResult) {
+            when (result.type()) {
                 REQ_GET -> {
-                    CoktLog.debug("REQ_GET: ${coktResp?.id} ${coktResp?.name}")
+                    CoktLog.debug("REQ_GET[${result.success()}]: ${result.data<CoktResp>()?.id} ${result.data<CoktResp>()?.name}")
+                }
+                REQ_POST -> {
+
                 }
             }
         }

@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.AsynActivity" />
+        <activity android:name=".activity.SecureActivity" />
     </application>
 
 </manifest>

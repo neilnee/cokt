@@ -24,6 +24,4 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$support_version"
-    // gson
-    implementation 'com.google.code.gson:gson:2.8.2'
 }

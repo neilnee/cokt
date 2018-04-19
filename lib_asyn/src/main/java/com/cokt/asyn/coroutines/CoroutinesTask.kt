@@ -1,20 +1,15 @@
 package com.cokt.asyn.coroutines
 
 import com.cokt.tool.CoktLog
-import kotlinx.coroutines.experimental.async
-import kotlinx.coroutines.experimental.delay
+import kotlinx.coroutines.experimental.runBlocking
 
 abstract class CoroutinesTask {
 
-    fun execute() {
-        CoktLog.debug("main thread is [${Thread.currentThread().id}]")
-        async {
-            CoktLog.debug("work thread is [${Thread.currentThread().id})]")
-            delay(5000)
-            runWorkThread()
-        }
+    fun execute() = runBlocking {
+        CoktLog.debug("start execute in [${Thread.currentThread().id}]")
+        CoktLog.debug("end execute in [${Thread.currentThread().id}]")
     }
 
-    protected abstract suspend fun runWorkThread()
+    protected abstract suspend fun runWorkThread(): Int
 
 }

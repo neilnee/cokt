@@ -47,7 +47,7 @@ class FingerprintAuth {
         signal.cancel()
     }
 
-    fun cryptoObject(name: String): FingerprintManagerCompat.CryptoObject? {
+    private fun cryptoObject(name: String): FingerprintManagerCompat.CryptoObject? {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) return null
 
         fun key(): Key? {

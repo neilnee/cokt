@@ -23,14 +23,14 @@ class AsynActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_asyn)
         btn_req_get.setOnClickListener {
-            AsynExecutor.defaultExecutor().execute(GithubTask(REQ_GET))
+            AsynExecutor.defaultExecutor().execute(GithubAsynTask(REQ_GET))
         }
         btn_req_coroutines.setOnClickListener {
             GithubCorTask().execute()
         }
     }
 
-    private inner class GithubTask(val type: Int = REQ_GET) : AbstractAsynTask() {
+    private inner class GithubAsynTask(val type: Int = REQ_GET) : AbstractAsynTask() {
 
         override fun runWorkThread() {
             when (type) {
@@ -58,8 +58,10 @@ class AsynActivity : BaseActivity() {
 
     private inner class GithubCorTask(val type: Int = REQ_GET) : CoroutinesTask() {
 
-        override suspend fun runWorkThread() {
+        override suspend fun runWorkThread(): Int {
             CoktLog.debug("REQ GET EXECUTE !")
+            Thread.sleep(3000L)
+            return 0
         }
 
     }

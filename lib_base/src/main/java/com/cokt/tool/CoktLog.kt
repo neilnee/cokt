@@ -3,7 +3,6 @@ package com.cokt.tool
 import android.util.Log
 
 object CoktLog {
-
     private val TAG = CoktLog::class.java.simpleName
 
     fun debug(log: String) {

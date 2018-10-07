@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.cokt.activity.MainActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,27 +15,18 @@
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             app:titleTextColor="@color/text_white"
-            app:title="@string/app_name"
+            app:title="@string/asyn"
             android:elevation="4dp">
         </android.support.v7.widget.Toolbar>
 
         <Button
-            android:id="@+id/btn_asyn"
+            android:id="@+id/btn_req_fingerprint"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:layout_below="@id/toolbar"
-            android:text="@string/asyn"
             android:textColor="@color/text_black"
-            android:textSize="16sp"/>
-
-        <Button
-            android:id="@+id/btn_secure"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_below="@id/btn_asyn"
-            android:text="@string/secure"
-            android:textColor="@color/text_black"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:text="@string/secure_request_fingerprint"/>
 
     </RelativeLayout>
 

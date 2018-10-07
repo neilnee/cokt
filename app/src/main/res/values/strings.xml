@@ -1,8 +1,18 @@
 <resources>
     <string name="app_name">CoKit</string>
+    
+    <string name="opt_cancel">取消</string>
 
     <string name="asyn">Asyn Module</string>
+    <string name="secure">Secure Module</string>
+
     <string name="asyn_request_post">Request Post</string>
     <string name="asyn_request_get">Request Get</string>
     <string name="asyn_request_coroutines">Use Coroutines</string>
+    <string name="secure_request_fingerprint">Fingerprint</string>
+
+    <string name="fingerprint_auth">Use Fingerprint</string>
+    <string name="fingerprint_auth_success">Fingerprint pass</string>
+    <string name="fingerprint_auth_failed">Fingerprint incorect</string>
+    <string name="fingerprint_unavailable">Fingerprint unusable</string>
 </resources>

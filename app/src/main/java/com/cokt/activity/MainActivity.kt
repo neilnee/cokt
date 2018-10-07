@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         btn_asyn.setOnClickListener {
             startActivity(intentFor<AsynActivity>())
         }
+        btn_secure.setOnClickListener {
+            startActivity(intentFor<SecureActivity>())
+        }
     }
 
 }
